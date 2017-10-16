@@ -33,8 +33,21 @@ describe('Tamagotchi', function() {
     expect(fuzzy.didItDie()).toEqual(true);
   });
 
-  it("should return a messag when Fuzzy's food level goes below zero", function() {
+  it("should return a message when Fuzzy's food level goes below zero", function() {
+    jasmine.clock().tick(10001);
+    expect(fuzzy.death()).toEqual("You can't feed a dead tamagotchi. That's weird.");
+  });
 
+  it("should not be able to feed a meal to a dead tamagotchi", function() {
+    jasmine.clock().tick(10001);
+    fuzzy.feedMeal();
+    expect(fuzzy.foodLevel).toEqual(0);
+  });
+
+  it("should not be able to feed a snack to a dead tamagotchi", function() {
+    jasmine.clock().tick(10001);
+    fuzzy.feedSnack();
+    expect(fuzzy.foodLevel).toEqual(0);
   });
 
   it('should have a food level of ten if it is fed meal', function() {

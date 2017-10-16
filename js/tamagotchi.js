@@ -23,17 +23,21 @@ export class Tamagotchi {
   feedMeal() {
     if (this.didItDie() === false) {
       this.foodLevel = 10;
+    } else {
+      this.foodLevel = 0;
     }
   }
 
   feedSnack() {
-    // if (this.didItDie() === false) {
+    if (this.didItDie() === false) {
       this.foodLevel = 5;
-    // }
+    } else {
+      this.foodLevel = 0;
+    }
   }
 
   death() {
-    if (this.didItDie === true);
+    if (this.didItDie() === true);
     return "You can't feed a dead tamagotchi. That's weird."
   }
 
