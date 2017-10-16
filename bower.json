@@ -1,0 +1,22 @@
+{
+  "name": "tamagotchi",
+  "description": "#### _In this game, you need to feed the bear regularly or the bear will try to eat you., 10.15.2017_",
+  "main": "gulpfile.js",
+  "authors": [
+    "Margaret Berry <margaretshelaghmcgovern@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/margaret85/hungry-bear",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "moment": "^2.19.1"
+  }
+}
