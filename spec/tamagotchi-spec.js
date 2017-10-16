@@ -7,18 +7,24 @@ describe('Tamagotchi', function() {
     fuzzy = new Tamagotchi('Fuzzy');
     jasmine.clock().install();
     fuzzy.setHunger();
+    fuzzy.setHappiness();
   });
 
   afterEach(function() {
     jasmine.clock().uninstall();
   });
 
-  it('should have a name and a food level of 10 when it is created', function() {
+  it('should have a name and a healthMeter of 100 when it is created', function() {
     expect(fuzzy.name).toEqual('Fuzzy');
     expect(fuzzy.healthMeter).toEqual(100);
   });
 
-  it('should have a food level of 7 after 3001 milliseconds', function() {
+  it('should have a name and a happinessMeter of 100 when it is created', function() {
+    expect(fuzzy.name).toEqual('Fuzzy');
+    expect(fuzzy.happinessMeter).toEqual(100);
+  });
+
+  it('should have a food level of 70 after 30001 milliseconds', function() {
     jasmine.clock().tick(30001);
     expect(fuzzy.healthMeter).toEqual(70);
   });
@@ -28,7 +34,7 @@ describe('Tamagotchi', function() {
     expect(fuzzy.didItDie()).toEqual(true);
   });
 
-  it('should get very hungry if 10 seconds pass without feeding', function() {
+  it('should get very hungry if 100 seconds pass without feeding', function() {
     jasmine.clock().tick(1000001);
     expect(fuzzy.didItDie()).toEqual(true);
   });
@@ -51,16 +57,27 @@ describe('Tamagotchi', function() {
   });
 
   it('should have a food level of ten if it is fed meal', function() {
-    jasmine.clock().tick(90001);
+    jasmine.clock().tick(99991);
     fuzzy.feedMeal();
-    expect(fuzzy.healthMeter).toEqual(100);
+    expect(fuzzy.healthMeter).toEqual(26);
   });
 
   it('should have a food level of 5 if it is fed a snack', function() {
-    jasmine.clock().tick(90001);
+    jasmine.clock().tick(99991);
     fuzzy.feedSnack();
-    expect(fuzzy.healthMeter).toEqual(50);
+    expect(fuzzy.healthMeter).toEqual(11);
   });
 
+  it('should decriment health and increment happiness when you play with tamagotchi', function() {
+    jasmine.clock().tick(30001);
+    fuzzy.playWith();
+    expect(fuzzy.healthMeter).toEqual(69);
+    expect(fuzzy.happinessMeter).toEqual(71);
+  });
+
+  it('should decriment health and increment happiness when you play with tamagotchi', function() {
+    jasmine.clock().tick(100000);
+    expect(fuzzy.playWith()).toEqual("You are playing with the remains of your dead tamagotchi. Sicko!");
+  });
 
 });

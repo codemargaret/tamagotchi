@@ -13,32 +13,17 @@ export class Tamagotchi {
     }, 1000);
   }
 
-  // setHappiness() {
-  //   setInterval(() => {
-  //     if (this.healthMeter >= 50) {
-  //       this.healthMeter--;
-  //     }, 5000);
-  //
-  //     else {
-  //       this.healthMeter--;
-  //     }, 1000);
-  //   }
-  // }
-
   setHappiness() {
     if (this.healthMeter >= 50){
       setInterval(() => {
-        this.healthMeter--;
-        console.log(this.healthMeter);
+        this.happinessMeter--;
       }, 1000);
     } else {
       setInterval(() => {
-        this.healthMeter--;
-        console.log(this.healthMeter);
+        this.happinessMeter--;
       }, 5000);
     }
   }
-
 
   didItDie() {
     if (this.healthMeter > 0) {
@@ -50,7 +35,7 @@ export class Tamagotchi {
 
   feedMeal() {
     if (this.didItDie() === false) {
-      this.healthMeter = 100;
+      this.healthMeter += 25;
     } else {
       this.healthMeter = 0;
     }
@@ -58,9 +43,18 @@ export class Tamagotchi {
 
   feedSnack() {
     if (this.didItDie() === false) {
-      this.healthMeter = 50;
+      this.healthMeter += 10;
     } else {
       this.healthMeter = 0;
+    }
+  }
+
+  playWith() {
+    if (this.didItDie() === false) {
+      this.healthMeter-- && this.happinessMeter++;
+      console.log(this.healthMeter)
+    } else {
+      return "You are playing with the remains of your dead tamagotchi. Sicko!";
     }
   }
 
@@ -68,6 +62,4 @@ export class Tamagotchi {
     if (this.didItDie() === true);
     return "You can't feed a dead tamagotchi. That's weird.";
   }
-
-
 }
