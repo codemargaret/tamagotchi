@@ -13,6 +13,7 @@ _..._
 * A user should be able to wake up the tamagotchi from its million light year sleep and play.
 
 * A user should be able to feed the tamagotchi a meal.
+* A user should be able to feed the tamagotchi a snack.
 * A user should be able to see its health meter.
 * A user should be able to see the tamagotchi's happiness meter.
 * A user should be able to play with their tamagotchi to increase its happiness.
