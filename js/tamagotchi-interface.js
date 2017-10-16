@@ -4,20 +4,20 @@ $(document).ready(function(){
   $('#bearName').submit(function(event){
     event.preventDefault();
     let name = $('#name').val();
-    let userBear = new Tamagotchi(name);
-    console.log(userBear.foodLevel);
+    let tamagotchi = new Tamagotchi(name);
+    tamagotchi.setHunger();
     $('#nameInput').text(name);
     $('#bearName').hide();
     $('#showName').show();
 
-    let hungerLevel = userBear.setHunger();
-    $('#hunger').append("<li>" + userBear.foodLevel + "</li>");
-    // while (userBear.foodLevel > 0) {
-    //   $('#hunger').append("<li>" + userBear.foodLevel + "</li>");
-    // }
+    setInterval(function() {
+      $('#hunger').text(tamagotchi.healthMeter);
+
+    });
+
 
   });
-  $('#feed').click(function(){
+  $('#snack').click(function(){
     feed();
   });
 });

@@ -10,18 +10,36 @@
   </head>
   <body>
     <div class="container">
-      <form id="bearName">
-        <label for="name">Enter a name for your bear:</label>
-        <input id="name" type="text" name="name">
-        <button class="btn btn-warning" type="submit">Name!</button>
-      </form>
-      <div id="showName">
-        <h1>Your bear's name is <span id="nameInput"></span></h1>
+      <div class="jumbotron">
+        <h1>Tamagotchi</h1>
       </div>
-      <h3>Your bear's hunger level is: </h3>
-      <ul id="hunger"></ul>
-      <h3>Click here to feed the bear:</h3>
-      <button id="feed" class="btn btn-warning" type="button" name="feed">Feed me Seymour!</button>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-block">
+              <h3 class="card-header" id="showName"><span id="nameInput"></span></h3>
+            </div>
+            <div class="card-block">
+              <form id="bearName">
+                <label for="name">Name your tamagotchi:</label>
+                <input id="name" type="text" name="name">
+                <button class="btn btn-warning" type="submit">Create</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div><br><br>
+      <div class="row">
+        <div class="col-md-4">
+          <h6>Hunger Meter: <span id="hunger"></span></h6>
+          <button id="snack" class="btn btn-warning" type="button" name="snack">Snack</button>
+          <button id="meal" class="btn btn-warning" type="button" name="meal">Meal</button>
+        </div>
+        <div class="col-md-4">
+          <h6>Health Meter: <span id=""></span></h6>
+          <button id="play" class="btn btn-warning" type="button" name="play">Play</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
