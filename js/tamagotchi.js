@@ -4,6 +4,7 @@ export class Tamagotchi {
     this.name = name;
     this.healthMeter = 100;
     this.happinessMeter = 100;
+    this.time = new Date().getHours();
   }
 
   setHunger() {
@@ -22,6 +23,16 @@ export class Tamagotchi {
     //     this.happinessMeter--;
     //   }, 2000);
     // }
+  }
+
+  sleep() {
+    if (this.time % 2 === 0) {
+      return "Daytime";
+    } else {
+      return "Nighttime";
+      this.healthMeter += 5;
+      this.happinessMeter += 25;
+    }
   }
 
   didItDie() {
@@ -50,22 +61,17 @@ export class Tamagotchi {
 
   playWith() {
     if (this.didItDie() === false) {
-      this.healthMeter-- && this.happinessMeter++;
+      this.healthMeter--;
+      this.happinessMeter++;
       console.log(this.healthMeter);
     } else {
       return "You are playing with the remains of your dead tamagotchi. Sicko!";
     }
   }
 
-  death() {
-    if (this.didItDie() === true);
-    return "You can't feed a dead tamagotchi. That's weird.";
-  }
-
-// refactor to happen randomly with Math.random
   poop() {
     setInterval(() => {
-      this.hungerMeter--;
     }, 30000);
+    return "I pooped!";
   }
 }

@@ -3,20 +3,24 @@ import { Tamagotchi } from './../js/tamagotchi.js';
 $(document).ready(function(){
   $('#bearName').submit(function(event){
     event.preventDefault();
+
     let name = $('#name').val();
     let tamagotchi = new Tamagotchi(name);
+
     tamagotchi.setHunger();
     tamagotchi.setHappiness();
+    tamagotchi.poop();
+
     $('#nameInput').text(name);
     $('#bearName').hide();
     $('#showName').show();
 
-    setInterval(function() {
+    let start = setInterval(function() {
       $('#hunger').text(tamagotchi.healthMeter);
-    });
-
-    setInterval(function() {
       $('#happiness').text(tamagotchi.happinessMeter);
+      if (tamagotchi.healthMeter <= 0) {
+        clearInterval(start);
+      }
     });
 
     $('#snack').click(function(){
@@ -30,5 +34,7 @@ $(document).ready(function(){
     $('#play').click(function(){
       tamagotchi.playWith();
     });
+
+
   });
 });

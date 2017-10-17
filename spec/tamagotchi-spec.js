@@ -8,6 +8,7 @@ describe('Tamagotchi', function() {
     jasmine.clock().install();
     fuzzy.setHunger();
     fuzzy.setHappiness();
+    fuzzy.poop();
   });
 
   afterEach(function() {
@@ -50,11 +51,6 @@ describe('Tamagotchi', function() {
     expect(fuzzy.didItDie()).toEqual(true);
   });
 
-  it("should return a message when Fuzzy's food level goes below zero", function() {
-    jasmine.clock().tick(1000001);
-    expect(fuzzy.death()).toEqual("You can't feed a dead tamagotchi. That's weird.");
-  });
-
   it("should not be able to feed a meal to a dead tamagotchi", function() {
     jasmine.clock().tick(1000001);
     fuzzy.feedMeal();
@@ -91,7 +87,14 @@ describe('Tamagotchi', function() {
     expect(fuzzy.playWith()).toEqual("You are playing with the remains of your dead tamagotchi. Sicko!");
   });
 
-  it('should poop every 30000 miliseconds and reduce hungerMeter by 3.', function() {
+  it('should poop every 30 seconds.', function() {
+    jasmine.clock().tick(30001);
+    fuzzy.poop();
+    expect(fuzzy.poop()).toEqual("I pooped!");
+  });
 
+  it('should return daytime for even hours', function(){
+    fuzzy.time = 14;
+    expect(fuzzy.sleep()).toEqual("Daytime");
   });
 });
