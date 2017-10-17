@@ -1,3 +1,21 @@
 #showName {
   display: none;
 }
+
+.jumbotron {
+  background-color: #c0c0c0;
+  text-align: center;
+}
+
+body {
+  background-color: #c0c0c0;
+}
+
+.row {
+  padding: 50px;
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+}
