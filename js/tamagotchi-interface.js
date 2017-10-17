@@ -10,7 +10,6 @@ $(document).ready(function(){
     tamagotchi.setHunger();
     tamagotchi.setHappiness();
     tamagotchi.poop();
-    // tamagotchi.sleep();
 
     $('#nameInput').text(name);
     $('#tamagotchiName').hide();
@@ -24,7 +23,31 @@ $(document).ready(function(){
       $('#time').text(tamagotchi.showTime());
       if (tamagotchi.healthMeter <= 0) {
         clearInterval(start);
+        $('#egg').hide();
+        $('#neutral').hide();
+        $('#sleep').hide();
+        $('#play').hide();
+        $('#poop').hide();
+        $('#death').show();
       }
+      if (tamagotchi.showTime() === "Nighttime") {
+        $('#egg').hide();
+        $('#neutral').hide();
+        $('#sleep').show();
+        $('#play').hide();
+        $('#poop').hide();
+        $('#death').hide();
+      }
+      // if (tamagotchi.poop() === "I pooped!" && tamagotchi.showTime() === "Daytime") {
+      //   $('#egg').hide();
+      //   setTimeout(function() {$('#neutral').hide();});
+      //   setTimeout(function() {$('#poop').show();});
+      //   setTimeout(function() {$('#poop').hide();}, 3000);
+      //   setTimeout(function() {$('#neutral').show();}, 3000);
+      //   $('#sleep').hide();
+      //   $('#play').hide();
+      //   $('#death').hide();
+      // }
     });
 
     $('#snackButton').click(function(){

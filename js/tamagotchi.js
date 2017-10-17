@@ -4,7 +4,7 @@ export class Tamagotchi {
     this.name = name;
     this.healthMeter = 100;
     this.happinessMeter = 100;
-    this.time = new Date().getHours();
+    this.time = new Date().getMinutes();
   }
 
   setHunger() {
@@ -14,15 +14,9 @@ export class Tamagotchi {
   }
 
   setHappiness() {
-    // if (this.healthMeter >= 50){
       setInterval(() => {
         this.happinessMeter--;
       }, 5000);
-    // } else {
-    //   setInterval(() => {
-    //     this.happinessMeter--;
-    //   }, 2000);
-    // }
   }
 
   showTime() {
@@ -32,12 +26,6 @@ export class Tamagotchi {
       return "Nighttime";
     }
   }
-  //
-  // sleep() {
-  //   if (showTime() === "Nighttime")
-  //   this.healthMeter += 5;
-  //   this.happinessMeter += 25;
-  // }
 
   didItDie() {
     if (this.healthMeter > 0) {
