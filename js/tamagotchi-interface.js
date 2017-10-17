@@ -1,7 +1,7 @@
 import { Tamagotchi } from './../js/tamagotchi.js';
 
 $(document).ready(function(){
-  $('#bearName').submit(function(event){
+  $('#tamagotchiName').submit(function(event){
     event.preventDefault();
 
     let name = $('#name').val();
@@ -10,31 +10,60 @@ $(document).ready(function(){
     tamagotchi.setHunger();
     tamagotchi.setHappiness();
     tamagotchi.poop();
+    // tamagotchi.sleep();
 
     $('#nameInput').text(name);
-    $('#bearName').hide();
+    $('#tamagotchiName').hide();
     $('#showName').show();
+    $('#neutral').show();
+    $('#egg').hide();
 
     let start = setInterval(function() {
       $('#hunger').text(tamagotchi.healthMeter);
       $('#happiness').text(tamagotchi.happinessMeter);
+      $('#time').text(tamagotchi.showTime());
       if (tamagotchi.healthMeter <= 0) {
         clearInterval(start);
       }
     });
 
-    $('#snack').click(function(){
+    $('#snackButton').click(function(){
       tamagotchi.feedSnack();
+      $('#egg').hide();
+      setTimeout(function() {$('#neutral').hide();});
+      setTimeout(function() {$('#eat').show();});
+      setTimeout(function() {$('#eat').hide();}, 3000);
+      setTimeout(function() {$('#neutral').show();}, 3000);
+      $('#sleep').hide();
+      $('#play').hide();
+      $('#poop').hide();
+      $('#death').hide();
     });
 
-    $('#meal').click(function(){
+    $('#mealButton').click(function(){
       tamagotchi.feedMeal();
+      $('#egg').hide();
+      setTimeout(function() {$('#neutral').hide();});
+      setTimeout(function() {$('#eat').show();});
+      setTimeout(function() {$('#eat').hide();}, 3000);
+      setTimeout(function() {$('#neutral').show();}, 3000);
+      $('#sleep').hide();
+      $('#play').hide();
+      $('#poop').hide();
+      $('#death').hide();
     });
 
-    $('#play').click(function(){
+    $('#playButton').click(function(){
       tamagotchi.playWith();
+      $('#egg').hide();
+      setTimeout(function() {$('#neutral').hide();});
+      setTimeout(function() {$('#play').show();});
+      setTimeout(function() {$('#play').hide();}, 3000);
+      setTimeout(function() {$('#neutral').show();}, 3000);
+      $('#eat').hide();
+      $('#sleep').hide();
+      $('#poop').hide();
+      $('#death').hide();
     });
-
-
   });
 });

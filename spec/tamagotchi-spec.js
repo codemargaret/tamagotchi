@@ -95,6 +95,6 @@ describe('Tamagotchi', function() {
 
   it('should return daytime for even hours', function(){
     fuzzy.time = 14;
-    expect(fuzzy.sleep()).toEqual("Daytime");
+    expect(fuzzy.showTime()).toEqual("Daytime");
   });
 });

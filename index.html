@@ -6,7 +6,7 @@
     <script src="build/js/vendor.min.js"></script>
     <script src="bower_components/moment/min/moment.min.js"></script>
     <script type="text/javascript" src="build/js/app.js"></script>
-    <title></title>
+    <title>Tamagotchi</title>
   </head>
   <body>
     <div class="container">
@@ -25,19 +25,37 @@
         <div id="happinessMeter"class="col-sm-4">
           <h6>Happiness Meter: <span id="happiness"></span></h6>
         </div>
-        <div class="col-sm-4">
-
+        <div id="clock" class="col-sm-4">
+          <h6>Time of Day: <span id="time"></span></h6>
         </div>
       </div>
       <div id="gifBox" class="row">
         <div class="col-sm-12">
-          <form id="bearName">
+          <form id="tamagotchiName">
             <label for="name">Name your tamagotchi:</label>
             <input id="name" type="text" name="name">
             <button class="btn btn-warning" type="submit">Create</button>
           </form>
           <div id="gif" class="col-sm-12">
-
+            <img id="egg" src="css/img/egg.gif" alt="egg">
+          </div>
+          <div id="gif" class="col-sm-12">
+            <img id="neutral" src="css/img/neutral.gif" alt="neutral">
+          </div>
+          <div id="gif" class="col-sm-12">
+            <img id="eat" src="css/img/eat.gif" alt="eat">
+          </div>
+          <div id="gif" class="col-sm-12">
+            <img id="sleep" src="css/img/sleep.gif" alt="sleep">
+          </div>
+          <div id="gif" class="col-sm-12">
+            <img id="play" src="css/img/play.gif" alt="play">
+          </div>
+          <div id="gif" class="col-sm-12">
+            <img id="poop" src="css/img/poop.gif" alt="poop">
+          </div>
+          <div id="gif" class="col-sm-12">
+            <img id="death" src="css/img/death.gif" alt="death">
           </div>
         </div>
       </div>
@@ -45,16 +63,16 @@
         <div class="col-sm-12">
           <div class="row">
             <div class="col-sm-3">
-              <button id="meal" class="btn btn-warning" type="button" name="meal">Meal</button>
+              <button id="mealButton" class="btn btn-warning" type="button" name="mealButton">Meal</button>
             </div>
             <div class="col-sm-3">
-              <button id="snack" class="btn btn-warning" type="button" name="snack">Snack</button>
+              <button id="snackButton" class="btn btn-warning" type="button" name="snackButton">Snack</button>
             </div>
             <div class="col-sm-3">
-              <button id="sleep" class="btn btn-warning" type="button" name="sleep">Sleep</button>
+              <button id="sleepButton" class="btn btn-warning" type="button" name="sleepButton">Sleep</button>
             </div>
             <div class="col-sm-3">
-              <button id="play" class="btn btn-warning" type="button" name="play">Play</button>
+              <button id="playButton" class="btn btn-warning" type="button" name="playButton">Play</button>
             </div>
           </div>
         </div>

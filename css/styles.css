@@ -1,4 +1,4 @@
-#showName {
+#showName, #neutral, #eat, #sleep, #play, #poop, #death {
   display: none;
 }
 
@@ -18,4 +18,9 @@ body {
 
 .footer {
   text-align: center;
+}
+
+#egg, #neutral, #eat, #sleep, #play, #poop, #death {
+  height: 16vw;
+  padding-top: 50px;
 }

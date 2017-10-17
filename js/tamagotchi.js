@@ -25,15 +25,19 @@ export class Tamagotchi {
     // }
   }
 
-  sleep() {
+  showTime() {
     if (this.time % 2 === 0) {
       return "Daytime";
     } else {
       return "Nighttime";
-      this.healthMeter += 5;
-      this.happinessMeter += 25;
     }
   }
+  //
+  // sleep() {
+  //   if (showTime() === "Nighttime")
+  //   this.healthMeter += 5;
+  //   this.happinessMeter += 25;
+  // }
 
   didItDie() {
     if (this.healthMeter > 0) {
