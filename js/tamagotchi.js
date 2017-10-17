@@ -7,22 +7,21 @@ export class Tamagotchi {
   }
 
   setHunger() {
-    setInterval(() => {
-      this.healthMeter--;
-      console.log(this.healthMeter);
-    }, 1000);
+      setInterval(() => {
+        this.healthMeter--;
+      }, 1000);
   }
 
   setHappiness() {
-    if (this.healthMeter >= 50){
-      setInterval(() => {
-        this.happinessMeter--;
-      }, 1000);
-    } else {
+    // if (this.healthMeter >= 50){
       setInterval(() => {
         this.happinessMeter--;
       }, 5000);
-    }
+    // } else {
+    //   setInterval(() => {
+    //     this.happinessMeter--;
+    //   }, 2000);
+    // }
   }
 
   didItDie() {
@@ -52,7 +51,7 @@ export class Tamagotchi {
   playWith() {
     if (this.didItDie() === false) {
       this.healthMeter-- && this.happinessMeter++;
-      console.log(this.healthMeter)
+      console.log(this.healthMeter);
     } else {
       return "You are playing with the remains of your dead tamagotchi. Sicko!";
     }
@@ -61,5 +60,12 @@ export class Tamagotchi {
   death() {
     if (this.didItDie() === true);
     return "You can't feed a dead tamagotchi. That's weird.";
+  }
+
+// refactor to happen randomly with Math.random
+  poop() {
+    setInterval(() => {
+      this.hungerMeter--;
+    }, 30000);
   }
 }

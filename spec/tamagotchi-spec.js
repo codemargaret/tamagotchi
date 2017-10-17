@@ -24,6 +24,17 @@ describe('Tamagotchi', function() {
     expect(fuzzy.happinessMeter).toEqual(100);
   });
 
+  // Requires using promises and event emitters
+  // it('should have a happiness level of 92 after 70001 milliseconds.', function() {
+  //   jasmine.clock().tick(70001);
+  //   expect(fuzzy.happinessMeter).toEqual(86);
+  // });
+
+  it('should have a happiness level of 94 after 30001 milliseconds.', function() {
+    jasmine.clock().tick(30001);
+    expect(fuzzy.happinessMeter).toEqual(94);
+  });
+
   it('should have a food level of 70 after 30001 milliseconds', function() {
     jasmine.clock().tick(30001);
     expect(fuzzy.healthMeter).toEqual(70);
@@ -72,7 +83,7 @@ describe('Tamagotchi', function() {
     jasmine.clock().tick(30001);
     fuzzy.playWith();
     expect(fuzzy.healthMeter).toEqual(69);
-    expect(fuzzy.happinessMeter).toEqual(71);
+    expect(fuzzy.happinessMeter).toEqual(95);
   });
 
   it('should decriment health and increment happiness when you play with tamagotchi', function() {
@@ -80,4 +91,7 @@ describe('Tamagotchi', function() {
     expect(fuzzy.playWith()).toEqual("You are playing with the remains of your dead tamagotchi. Sicko!");
   });
 
+  it('should poop every 30000 miliseconds and reduce hungerMeter by 3.', function() {
+
+  });
 });
